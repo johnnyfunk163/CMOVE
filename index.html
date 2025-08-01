@@ -83,13 +83,29 @@
     <canvas id="tokenChart" width="400" height="400" class="mx-auto my-12 bg-white rounded-xl p-4"></canvas>
     <script>
       const ctx = document.getElementById('tokenChart').getContext('2d');
-      const tokenChart = new Chart(ctx, {
+      
+    const tokenChart = new Chart(ctx, {
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              color: 'white',
+              font: { size: 14 }
+            }
+          }
+        }
+      },
+    
         type: 'pie',
         data: {
           labels: ['Player Rewards (45%)','Team (20%)','Investors (15%)','Liquidity & Exchanges (10%)','Staking & Boosts (5%)','DAO Treasury (5%)'],
           datasets: [{
             data: [45, 20, 15, 10, 5, 5],
-            backgroundColor: ['#facc15', '#f87171', '#60a5fa','#34d399', '#c084fc', '#fbbf24']
+            backgroundColor: ['#facc15', '#f87171', '#60a5fa','#34d399', '#c084fc', '#fbbf24'],
+        borderColor: '#1f2937',
+        borderWidth: 2
           }]
         },
         options: {
